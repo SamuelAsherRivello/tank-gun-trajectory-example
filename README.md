@@ -5,6 +5,18 @@ Example of aiming and firing a tank gun with trajectory.
 
 <img src="./README.png" alt="Screenshot">
 
+Instructions
+=============
+
+1. Open project
+1. Open "Main" Scene
+1. Play Scene
+1. Select "Target" in Scene Hierarchy
+1. Drag "Target" GameObject to move it within Scene View (The Tank turret will aim automatically)
+1. Press "Spacebar" to fire. The projectile "Bullet" will hit the "Target"
+
+Note: The math calculates the turret elevantion angle -- using the POSITION of the turret, the POSITION of the target, and a hardcoded bullet speed.
+
 Created By
 =============
 
