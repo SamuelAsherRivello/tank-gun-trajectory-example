@@ -3,7 +3,7 @@ Tank Gun Trajectory Example
 
 Example of aiming and firing a tank gun with trajectory.
 
-<img src="./README.png" alt="Screenshot">
+<img src="./README.png" width="600" alt="Screenshot">
 
 Instructions
 =============
