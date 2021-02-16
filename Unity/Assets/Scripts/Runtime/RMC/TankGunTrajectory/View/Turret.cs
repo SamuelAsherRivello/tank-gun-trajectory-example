@@ -68,7 +68,7 @@ namespace RMC.TankGunTrajectory.View
 		/// <summary>
 		/// TODO: FIXME. This does not work.
 		/// 
-		/// Ideas: Maybe passed... Speed? Gravity?
+		/// Ideas: Maybe I must pass in... Speed? Gravity?
 		/// 
 		/// <see cref="https://answers.unity.com/questions/1169659/automatic-cannon-aiming.html"/>
 		/// 
