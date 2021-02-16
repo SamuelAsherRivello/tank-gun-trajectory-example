@@ -1,27 +1,21 @@
-using System;
 using UnityEngine;
 
-namespace RMC.TankGunTrajectory
+namespace RMC.TankGunTrajectory.View
 {
 	//  Namespace Properties ------------------------------
 
-
 	//  Class Attributes ----------------------------------
-
 
 	/// <summary>
 	/// Replace with comments...
 	/// </summary>
-	public class Turret : MonoBehaviour
+	public class TurretBarrelBottom : MonoBehaviour
 	{
 		//  Events ----------------------------------------
 
 		//  Properties ------------------------------------
 
 		//  Fields ----------------------------------------
-		[SerializeField]
-		private string _samplePublicText;
-
 
 		//  Unity Methods ---------------------------------
 

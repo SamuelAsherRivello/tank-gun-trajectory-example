@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RMC.TankGunTrajectory
+namespace RMC.TankGunTrajectory.View
 {
 	//  Namespace Properties ------------------------------
 
