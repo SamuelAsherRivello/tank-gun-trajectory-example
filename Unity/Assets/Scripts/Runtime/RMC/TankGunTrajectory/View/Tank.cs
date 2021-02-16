@@ -1,5 +1,4 @@
 using RMC.TankGunTrajectory.Model;
-using System;
 using UnityEngine;
 
 namespace RMC.TankGunTrajectory.View
@@ -40,26 +39,21 @@ namespace RMC.TankGunTrajectory.View
 		//  Methods ---------------------------------------
 		public void AimAtTarget(Target target)
 		{
-			// Aim at X , Z. Keep existing Y.
-			Vector3 targetPosition = new Vector3(
-				target.transform.position.x,
-				_turret.transform.position.y,
-				target.transform.position.z);
-
-			_turret.transform.LookAt(targetPosition);
+			_turret.AimAtTarget(target);
 		}
 
-		public void ShootAtTarget(Target target)
+		public void ShootBullet()
 		{
 			// Set position
 			Bullet bullet = Instantiate<Bullet>(_bulletPrefab);
-			bullet.transform.position = _turret.TurretBarrelBottom.transform.position;
-
+			
 			// Set movement
+			Vector3 bulletPosition = _turret.TurretBarrelBottom.transform.position;
 			Vector3 bulletAngle = _turret.TurretBarrelAngle;
 			float bulletSpeed = _configurationData.BulletSpeed;
-			
-			bullet.Shoot(bulletAngle, bulletSpeed, _configurationData.BulletLifetime);
+			float bulletLifetime = _configurationData.BulletLifetime;
+
+			bullet.Shoot(bulletPosition, bulletAngle, bulletSpeed, bulletLifetime);
 		}
 
 		//  Event Handlers --------------------------------

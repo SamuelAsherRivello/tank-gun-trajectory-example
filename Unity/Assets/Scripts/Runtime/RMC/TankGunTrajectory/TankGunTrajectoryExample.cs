@@ -42,7 +42,7 @@ namespace RMC.TankGunTrajectory
 
 			if (Input.GetKeyDown (_configurationData.KeyCodeFireBullet))
 			{
-				_tank.ShootAtTarget(_target);
+				_tank.ShootBullet();
 			}
 		}
 
