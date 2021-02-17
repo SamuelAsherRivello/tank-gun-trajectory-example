@@ -71,9 +71,8 @@ namespace RMC.TankGunTrajectory.View
 			// Position bullet
 			transform.position = startPosition;
 
-			// Move bullet
-			Vector3 force = bulletAngle * bulletSpeed;
-			_rigidBody.AddForce(force, ForceMode.Force);
+			// Shoot with given velocity
+			_rigidBody.velocity = bulletAngle.normalized * bulletSpeed;
 
 			// Destroy after time
 			_destroyAfterDelayCoroutine =

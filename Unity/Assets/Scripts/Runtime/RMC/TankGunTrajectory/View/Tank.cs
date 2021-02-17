@@ -34,12 +34,13 @@ namespace RMC.TankGunTrajectory.View
 		[SerializeField]
 		private ConfigurationData _configurationData = null;
 
+
 		//  Unity Methods ---------------------------------
 
 		//  Methods ---------------------------------------
 		public void AimAtTarget(Target target)
 		{
-			_turret.AimAtTarget(target);
+			_turret.AimAtTarget(target, this._configurationData.BulletSpeed);
 		}
 
 		public void ShootBullet()

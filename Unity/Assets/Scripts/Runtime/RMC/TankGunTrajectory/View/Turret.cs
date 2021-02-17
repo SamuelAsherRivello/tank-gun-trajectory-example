@@ -52,40 +52,38 @@ namespace RMC.TankGunTrajectory.View
 		/// 
 		/// </summary>
 		/// <param name="target"></param>
-		public void AimAtTarget(Target target)
+		public void AimAtTarget(Target target, float bulletSpeed)
 		{
-			float elevationAngle = GetElevationAngleToTarget(target);
+			float elevationAngle = GetElevationAngleToTarget(target, bulletSpeed);
 
 			// Aim directly at X , Z. Use calculated Y.
 			Vector3 targetPosition = new Vector3(
 				target.transform.position.x,
-				elevationAngle,
+				0.0f,
 				target.transform.position.z);
 
 			transform.LookAt(targetPosition);
-		}
+
+			// FIXME: This only works when TurrentTop and TurrentBottom are at the same height in Prefab. This means they are not aligned with their 3D model.
+			Vector3 transformEuler = transform.eulerAngles;
+			transformEuler.x = -elevationAngle;
+            transform.eulerAngles = transformEuler;
+        }
 
 		/// <summary>
-		/// TODO: FIXME. This does not work.
 		/// 
-		/// Ideas: Maybe I must pass in... Speed? Gravity?
+		/// Compute elevation angle to hit a target with given bullet speed and assuming that target is at the exact same height as the turret.
 		/// 
 		/// <see cref="https://answers.unity.com/questions/1169659/automatic-cannon-aiming.html"/>
 		/// 
 		/// </summary>
-		private float GetElevationAngleToTarget(Target target)
+		private float GetElevationAngleToTarget(Target target, float bulletSpeed)
 		{
-			// find the cannon->target vector:
-			var dir = target.transform.position - transform.position;
+			var direction = target.transform.position - transform.position;
+			var targetDistance = direction.magnitude;
+			var angle = Mathf.Rad2Deg * Mathf.Atan((targetDistance * Mathf.Abs(Physics.gravity.y)) / (2.0f * bulletSpeed * bulletSpeed));
 
-			// create a horizontal version of it:
-			var dirH = new Vector3(dir.x, 0, dir.z);
-
-			// measure the unsigned angle between them:
-			var ang = Vector3.Angle(dir, dirH);
-
-			// add the signal (negative is below the cannon):
-			return ang;
-		}
+            return angle;
+        }
 	}
 }
