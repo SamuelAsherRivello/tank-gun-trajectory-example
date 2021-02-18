@@ -37,13 +37,8 @@ namespace RMC.TankGunTrajectory.View
 		{
 			// Set position
 			Bullet bullet = Instantiate<Bullet>(_bulletPrefab);
-			
-			// Set movement
-			Vector3 bulletPosition = _turret.TurretBarrelBottom.transform.position;
-			Vector3 bulletAngle = _turret.TurretBarrelAngle;
-			float bulletSpeed = _configurationData.BulletSpeed;
+			_turret.ShootAtTarget(bullet, _configurationData.BulletSpeed);
 
-			bullet.Shoot(bulletPosition, bulletAngle, bulletSpeed);
 		}
 
 		//  Event Handlers --------------------------------

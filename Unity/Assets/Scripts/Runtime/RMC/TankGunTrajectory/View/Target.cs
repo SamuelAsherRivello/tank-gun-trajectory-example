@@ -8,16 +8,5 @@ namespace RMC.TankGunTrajectory.View
 	/// </summary>
 	public class Target : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
-		//  Properties ------------------------------------
-
-		//  Fields ----------------------------------------
-
-		//  Unity Methods ---------------------------------
-
-		//  Methods ---------------------------------------
-
-		//  Event Handlers --------------------------------
 	}
 }

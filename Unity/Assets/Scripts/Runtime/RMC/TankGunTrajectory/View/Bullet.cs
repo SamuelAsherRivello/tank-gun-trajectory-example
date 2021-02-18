@@ -9,6 +9,9 @@ namespace RMC.TankGunTrajectory.View
 	/// </summary>
 	public class Bullet : MonoBehaviour
 	{
+		//  Properties ----------------------------------------
+		public Rigidbody RigidBody { get { return _rigidBody; } }
+
 		//  Fields ----------------------------------------
 		[SerializeField]
 		private Rigidbody _rigidBody;
@@ -18,6 +21,7 @@ namespace RMC.TankGunTrajectory.View
 
 		private Coroutine _destroyAfterDelayCoroutine = null;
 		private bool _hasExplosionStarted = false;
+
 
 		//  Unity Methods ---------------------------------
 		protected void Update()
@@ -39,19 +43,6 @@ namespace RMC.TankGunTrajectory.View
 		}
 
 		//  Methods ---------------------------------------
-		public void Shoot(Vector3 bulletPosition, Vector3 bulletAngle,
-							float bulletSpeed)
-		{
-			// Position bullet
-			transform.position = bulletPosition;
-
-			// Shoot with given velocity
-			_rigidBody.velocity = bulletAngle.normalized * bulletSpeed;
-
-			// Play Audio
-			SoundManager.Instance.PlayAudioClip(GameConstants.Sound.ShotFiring);
-		}
-
 
 		private void ExplodeSafe()
 		{
