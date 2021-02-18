@@ -24,6 +24,14 @@ namespace RMC.TankGunTrajectory.View
 
 
 		//  Unity Methods ---------------------------------
+		protected void Start()
+		{
+			// Best Practice: Destroy after x seconds
+			// to reduce Scene Hierarcy's clutter
+			_destroyAfterDelayCoroutine =
+				StartCoroutine(DestroyAfterDelay(GameConstants.BulletLifetime));
+		}
+
 		protected void Update()
 		{
 			_rigidBody.MoveRotation(
@@ -51,10 +59,6 @@ namespace RMC.TankGunTrajectory.View
 				_hasExplosionStarted = true;
 				SoundManager.Instance.PlayAudioClip(GameConstants.Sound.ShellExplosion);
 				_particleSystem.Play();
-
-				// Destroy after time
-				_destroyAfterDelayCoroutine =
-					StartCoroutine(DestroyAfterDelay(GameConstants.BulletLifetime));
 			}
 		}
 
