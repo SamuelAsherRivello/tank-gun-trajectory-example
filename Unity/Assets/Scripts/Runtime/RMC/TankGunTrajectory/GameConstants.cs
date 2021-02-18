@@ -1,7 +1,7 @@
 namespace RMC.TankGunTrajectory
 {
 	/// <summary>
-	/// Store commonly-used values
+	/// Store commonly used values -- Editable at edit-time.
 	/// </summary>
 	public static class GameConstants
 	{

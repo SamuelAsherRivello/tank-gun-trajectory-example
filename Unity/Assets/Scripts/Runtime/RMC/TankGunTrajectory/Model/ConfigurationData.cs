@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.Model
 {
-	//  Namespace Properties ------------------------------
-
-
 	//  Class Attributes ----------------------------------
 	[CreateAssetMenu (
 		fileName = "ConfigurationData",
@@ -12,7 +9,7 @@ namespace RMC.TankGunTrajectory.Model
 		order = 0)]
 
 	/// <summary>
-	/// Replace with comments...
+	/// Store commonly used values -- Editable at runtime and edit-time.
 	/// </summary>
 	public class ConfigurationData : ScriptableObject
 	{

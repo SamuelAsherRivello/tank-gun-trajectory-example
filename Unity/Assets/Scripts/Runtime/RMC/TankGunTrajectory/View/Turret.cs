@@ -3,7 +3,10 @@ using UnityEngine;
 namespace RMC.TankGunTrajectory.View
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Handles aiming at <see cref="Target"/>.
+	/// 
+	/// NOTE: Contains the trigonometric math functions.
+	/// 
 	/// </summary>
 	[ExecuteAlways]
 	public class Turret : MonoBehaviour
@@ -11,16 +14,8 @@ namespace RMC.TankGunTrajectory.View
 		//  Events ----------------------------------------
 
 		//  Properties ------------------------------------
-		public TurretBarrelBottom TurretBarrelBottom
-		{
-			get { return _turretBarrelBottom; }
-		}
-
-		public TurretBarrelTop TurretBarrelTop
-		{
-			get { return _turretBarrelTop; }
-		}
-
+		public TurretBarrelBottom TurretBarrelBottom { get { return _turretBarrelBottom; }}
+		public TurretBarrelTop TurretBarrelTop {get { return _turretBarrelTop; } }
 		public Vector3 TurretBarrelAngle
 		{
 			get
@@ -29,6 +24,7 @@ namespace RMC.TankGunTrajectory.View
 						_turretBarrelBottom.transform.position;
 			}
 		}
+
 
 		//  Fields ----------------------------------------
 		[SerializeField]
@@ -67,8 +63,8 @@ namespace RMC.TankGunTrajectory.View
 			// FIXME: This only works when TurrentTop and TurrentBottom are at the same height in Prefab. This means they are not aligned with their 3D model.
 			Vector3 transformEuler = transform.eulerAngles;
 			transformEuler.x = -elevationAngle;
-            transform.eulerAngles = transformEuler;
-        }
+			transform.eulerAngles = transformEuler;
+		}
 
 		/// <summary>
 		/// 
@@ -83,7 +79,7 @@ namespace RMC.TankGunTrajectory.View
 			var targetDistance = direction.magnitude;
 			var angle = Mathf.Rad2Deg * Mathf.Atan((targetDistance * Mathf.Abs(Physics.gravity.y)) / (2.0f * bulletSpeed * bulletSpeed));
 
-            return angle;
-        }
+			return angle;
+		}
 	}
 }

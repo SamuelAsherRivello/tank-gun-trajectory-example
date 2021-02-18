@@ -4,23 +4,11 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.View
 {
-	//  Namespace Properties ------------------------------
-
-
-	//  Class Attributes ----------------------------------
-
-
 	/// <summary>
-	/// Replace with comments...
+	/// Bullet flight, collision, and destruction
 	/// </summary>
 	public class Bullet : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
-
-		//  Properties ------------------------------------
-
-
 		//  Fields ----------------------------------------
 		[SerializeField]
 		private Rigidbody _rigidBody;

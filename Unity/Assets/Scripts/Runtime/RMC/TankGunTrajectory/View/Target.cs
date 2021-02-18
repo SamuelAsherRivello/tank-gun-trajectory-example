@@ -2,12 +2,9 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.View
 {
-	//  Namespace Properties ------------------------------
-
-	//  Class Attributes ----------------------------------
-
 	/// <summary>
-	/// Replace with comments...
+	/// Marker-class for where the <see cref="Tank"/> will aim
+	/// and where <see cref="Bullet"/>will land.
 	/// </summary>
 	public class Target : MonoBehaviour
 	{

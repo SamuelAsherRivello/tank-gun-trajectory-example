@@ -4,23 +4,19 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory
 {
-	//  Namespace Properties ------------------------------
-
-
 	//  Class Attributes ----------------------------------
-
+	// This is a developer #protip to iterate faster on the aiming
+	// code development without needing to hit 'Play'.
+	//
+	//	NOTE: Hitting 'Play' is indeed required for shooting.
+	//
+	[ExecuteAlways]
 
 	/// <summary>
-	/// Replace with comments...
+	/// Main entry-point to the project. Start reading here...
 	/// </summary>
-	[ExecuteAlways]
 	public class TankGunTrajectoryExample : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
-
-		//  Properties ------------------------------------
-
 		//  Fields ----------------------------------------
 
 		[Header ("Scene GameObjects")]
@@ -45,7 +41,6 @@ namespace RMC.TankGunTrajectory
 				_tank.ShootBullet();
 			}
 		}
-
 		//  Methods ---------------------------------------
 
 		//  Event Handlers --------------------------------

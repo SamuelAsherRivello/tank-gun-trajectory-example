@@ -2,6 +2,9 @@
 
 namespace RMC.DesignPatterns
 {
+	/// <summary>
+	///  Setup design pattern: Singleton
+	/// </summary>
 	public abstract class SingletonMonobehavior<T> : MonoBehaviour where T : MonoBehaviour
 	{
 		//  Properties ------------------------------------------

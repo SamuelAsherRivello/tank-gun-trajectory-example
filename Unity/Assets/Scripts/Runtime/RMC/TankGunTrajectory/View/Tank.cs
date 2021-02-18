@@ -3,23 +3,14 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.View
 {
-	//  Namespace Properties ------------------------------
-
-
-	//  Class Attributes ----------------------------------
-
-
 	/// <summary>
-	/// Replace with comments...
+	/// Handles all high-level tank-related concerns.
+	/// 
+	/// Wraps <see cref="Turret"/> concerns too.
+	/// 
 	/// </summary>
 	public class Tank : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
-
-		//  Properties ------------------------------------
-
-
 		//  Fields ----------------------------------------
 
 		[Header ("Children")]
@@ -33,7 +24,6 @@ namespace RMC.TankGunTrajectory.View
 		[Header("Configuration")]
 		[SerializeField]
 		private ConfigurationData _configurationData = null;
-
 
 		//  Unity Methods ---------------------------------
 

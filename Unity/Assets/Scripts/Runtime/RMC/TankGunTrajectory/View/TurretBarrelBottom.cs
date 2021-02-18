@@ -2,25 +2,10 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.View
 {
-	//  Namespace Properties ------------------------------
-
-	//  Class Attributes ----------------------------------
-
 	/// <summary>
-	/// Replace with comments...
+	/// Marker-class used by <see cref="Turret"/> for aiming.
 	/// </summary>
 	public class TurretBarrelBottom : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
-		//  Properties ------------------------------------
-
-		//  Fields ----------------------------------------
-
-		//  Unity Methods ---------------------------------
-
-		//  Methods ---------------------------------------
-
-		//  Event Handlers --------------------------------
 	}
 }
