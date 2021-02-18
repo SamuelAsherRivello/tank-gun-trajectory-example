@@ -52,9 +52,8 @@ namespace RMC.TankGunTrajectory.View
 			Vector3 bulletPosition = _turret.TurretBarrelBottom.transform.position;
 			Vector3 bulletAngle = _turret.TurretBarrelAngle;
 			float bulletSpeed = _configurationData.BulletSpeed;
-			float bulletLifetime = _configurationData.BulletLifetime;
 
-			bullet.Shoot(bulletPosition, bulletAngle, bulletSpeed, bulletLifetime);
+			bullet.Shoot(bulletPosition, bulletAngle, bulletSpeed);
 		}
 
 		//  Event Handlers --------------------------------

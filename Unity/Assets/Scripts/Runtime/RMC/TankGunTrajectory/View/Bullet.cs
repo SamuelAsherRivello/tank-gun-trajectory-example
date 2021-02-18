@@ -1,5 +1,4 @@
-using RMC.TankGunTrajectory.Model;
-using System;
+using RMC.Projects.Managers;
 using System.Collections;
 using UnityEngine;
 
@@ -30,6 +29,7 @@ namespace RMC.TankGunTrajectory.View
 		private ParticleSystem _particleSystem = null;
 
 		private Coroutine _destroyAfterDelayCoroutine = null;
+		private bool _hasExplosionStarted = false;
 
 		//  Unity Methods ---------------------------------
 		protected void Update()
@@ -38,19 +38,12 @@ namespace RMC.TankGunTrajectory.View
 				Quaternion.Euler(transform.TransformDirection (Vector3.up)));
 
 			_rigidBody.angularVelocity = new Vector3(0, 0, 0);
-
-			// Play explosion when bullet is near the ground
-			if (transform.position.y < 0.1f)
-			{
-				if (!_particleSystem.isPlaying)
-				{
-					_particleSystem.Play();
-				}
-			}
 		}
 
 		protected void OnDestroy()
 		{
+			// Best Practice: If the scene ends, before the coroutine 
+			// finishes, clean up nicely here.
 			if (_destroyAfterDelayCoroutine != null)
 			{
 				StopCoroutine(_destroyAfterDelayCoroutine);
@@ -59,25 +52,33 @@ namespace RMC.TankGunTrajectory.View
 
 		//  Methods ---------------------------------------
 		public void Shoot(Vector3 bulletPosition, Vector3 bulletAngle,
-							float bulletSpeed, float bulletLifetime)
+							float bulletSpeed)
 		{
-			// Debug drawing bullet
-			Vector3 startPosition = bulletPosition;
-			Vector3 endPosition = bulletPosition + bulletAngle * 3;
-
-			Debug.DrawLine(startPosition,
-					endPosition, Color.red, 4f);
-
 			// Position bullet
-			transform.position = startPosition;
+			transform.position = bulletPosition;
 
 			// Shoot with given velocity
 			_rigidBody.velocity = bulletAngle.normalized * bulletSpeed;
 
-			// Destroy after time
-			_destroyAfterDelayCoroutine =
-				StartCoroutine(DestroyAfterDelay(bulletLifetime));
+			// Play Audio
+			SoundManager.Instance.PlayAudioClip(GameConstants.Sound.ShotFiring);
 		}
+
+
+		private void ExplodeSafe()
+		{
+			if (!_hasExplosionStarted)
+			{
+				_hasExplosionStarted = true;
+				SoundManager.Instance.PlayAudioClip(GameConstants.Sound.ShellExplosion);
+				_particleSystem.Play();
+
+				// Destroy after time
+				_destroyAfterDelayCoroutine =
+					StartCoroutine(DestroyAfterDelay(GameConstants.BulletLifetime));
+			}
+		}
+
 
 		private IEnumerator DestroyAfterDelay(float delay)
 		{
@@ -86,5 +87,12 @@ namespace RMC.TankGunTrajectory.View
 		}
 
 		//  Event Handlers --------------------------------
+		protected void OnTriggerEnter(Collider collider)
+		{
+			if (collider.gameObject.CompareTag(GameConstants.Tags.PhysicsGround))
+			{
+				ExplodeSafe();
+			}
+		}
 	}
 }

@@ -27,11 +27,6 @@ namespace RMC.TankGunTrajectory.Model
 			get { return _bulletSpeed; }
 		}
 
-		public float BulletLifetime
-		{
-			get { return _bulletLifetime; }
-		}
-		
 
 		//  Fields ----------------------------------------
 
@@ -42,9 +37,6 @@ namespace RMC.TankGunTrajectory.Model
 		[Header("Gameplay")]
 		[SerializeField]
 		private float _bulletSpeed = 250;
-
-		[SerializeField]
-		private float _bulletLifetime = 2;
 
 		//  Unity Methods ---------------------------------
 	}
