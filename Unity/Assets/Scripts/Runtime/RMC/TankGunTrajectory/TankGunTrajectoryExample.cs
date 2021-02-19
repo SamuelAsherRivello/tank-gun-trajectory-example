@@ -21,6 +21,9 @@ namespace RMC.TankGunTrajectory
 
 		[Header ("Scene GameObjects")]
 		[SerializeField]
+		private Camera _camera = null;
+
+		[SerializeField]
 		private Tank _tank = null;
 
 		[SerializeField]
@@ -34,13 +37,29 @@ namespace RMC.TankGunTrajectory
 
 		protected void Update()
 		{
+			// Hold Mouse To Move Target
+			if (Input.GetMouseButton(1))
+			{
+				const float offset = 0.1f;
+				RaycastHit hit;
+				Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+				if (Physics.Raycast(ray, out hit))
+				{
+					_target.transform.position = hit.point - (ray.direction * offset);
+				}
+			}
+
+			// Aim At Target 
 			_tank.AimAtTarget(_target);
 
-			if (Input.GetKeyDown (_configurationData.KeyCodeFireBullet))
+			// Shoot At Target
+			if (Input.GetMouseButtonDown(0))
 			{
 				_tank.ShootBullet();
 			}
 		}
+
 		//  Methods ---------------------------------------
 
 		//  Event Handlers --------------------------------
