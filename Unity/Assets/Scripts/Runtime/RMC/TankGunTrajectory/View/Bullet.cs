@@ -1,4 +1,5 @@
 using RMC.Projects.Managers;
+using RMC.TankGunTrajectory.Model;
 using System.Collections;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ namespace RMC.TankGunTrajectory.View
 		[SerializeField]
 		private ParticleSystem _particleSystem = null;
 
+		[Header("Configuration")]
+		[SerializeField]
+		private ConfigurationData _configurationData = null;
+
 		private Coroutine _destroyAfterDelayCoroutine = null;
 		private bool _hasExplosionStarted = false;
 
@@ -29,7 +34,7 @@ namespace RMC.TankGunTrajectory.View
 			// Best Practice: Destroy after x seconds
 			// to reduce Scene Hierarcy's clutter
 			_destroyAfterDelayCoroutine =
-				StartCoroutine(DestroyAfterDelay(GameConstants.BulletLifetime));
+				StartCoroutine(DestroyAfterDelay(_configurationData.BulletLifetime));
 		}
 
 		protected void Update()

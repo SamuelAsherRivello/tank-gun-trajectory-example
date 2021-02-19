@@ -2,6 +2,14 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory.Model
 {
+	//  Class Fields --------------------------------------
+	public enum MouseButton
+	{
+		Null = -1,
+		Left = 0,
+		Right = 1
+	}
+
 	//  Class Attributes ----------------------------------
 	[CreateAssetMenu (
 		fileName = "ConfigurationData",
@@ -14,9 +22,14 @@ namespace RMC.TankGunTrajectory.Model
 	public class ConfigurationData : ScriptableObject
 	{
 		//  Properties ------------------------------------
-		public KeyCode KeyCodeFireBullet
+		public MouseButton MouseButtonToFire
 		{
-			get { return _keyCodeFireBullet; }
+			get { return _mouseButtonToFire; }
+		}
+
+		public MouseButton MouseButtonToAim
+		{
+			get { return _mouseButtonToAim; }
 		}
 
 		public float BulletSpeed
@@ -24,16 +37,30 @@ namespace RMC.TankGunTrajectory.Model
 			get { return _bulletSpeed; }
 		}
 
+		public float BulletLifetime
+		{
+			get { return _bulletLifetime; }
+		}
+		
 
 		//  Fields ----------------------------------------
 
 		[Header("Input")]
 		[SerializeField]
-		private KeyCode _keyCodeFireBullet = KeyCode.Space;
+		private MouseButton _mouseButtonToFire = MouseButton.Left;
+
+		[SerializeField]
+		private MouseButton _mouseButtonToAim = MouseButton.Right;
 
 		[Header("Gameplay")]
 		[SerializeField]
-		private float _bulletSpeed = 250;
+		[Range(20, 30)]
+		private float _bulletSpeed = 20;
+
+		[SerializeField]
+		[Range (2,5)]
+		private float _bulletLifetime = 2;
+
 
 		//  Unity Methods ---------------------------------
 	}

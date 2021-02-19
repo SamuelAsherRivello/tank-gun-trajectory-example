@@ -38,7 +38,7 @@ namespace RMC.TankGunTrajectory
 		protected void Update()
 		{
 			// Hold Mouse To Move Target
-			if (Input.GetMouseButton(1))
+			if (Input.GetMouseButton((int)_configurationData.MouseButtonToAim))
 			{
 				const float offset = 0.1f;
 				RaycastHit hit;
@@ -54,7 +54,7 @@ namespace RMC.TankGunTrajectory
 			_tank.AimAtTarget(_target);
 
 			// Shoot At Target
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown((int)_configurationData.MouseButtonToFire))
 			{
 				_tank.ShootBullet();
 			}
