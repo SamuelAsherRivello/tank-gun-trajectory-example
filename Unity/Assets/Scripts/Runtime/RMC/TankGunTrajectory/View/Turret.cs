@@ -56,13 +56,19 @@ namespace RMC.TankGunTrajectory.View
 				target.transform.position.z);
 			transform.LookAt(targetPosition);
 
+			// Compute angle part that resembles the height difference between the tank (more specifically TurretBottom, which is where the bullet spawns) and the target
+			var direction = target.transform.position - _turretBarrelBottom.transform.position;
+			var flatDirection = new Vector3(direction.x, 0.0f, direction.z);
+			var diffAngle = Vector3.Angle(direction, flatDirection);
+			if (direction.y > 0.0f)
+				diffAngle *= -1.0f;
+
 			// Math #1 of 2 - Compute elevation angle
-			// Assume a bullet speed and assuming that target is at the 
-			// exact same height as the turret.
-			// <see cref="https://answers.unity.com/questions/1169659/automatic-cannon-aiming.html"/>
-			var direction = target.transform.position - transform.position;
+			// Assume a bullet speed and a height difference (given by diffAngle)
 			var targetDistance = direction.magnitude;
-			var elevationAngle = Mathf.Rad2Deg * Mathf.Atan((targetDistance * Mathf.Abs(Physics.gravity.y)) / (2.0f * bulletSpeed * bulletSpeed));
+			var elevationAngle = Mathf.Rad2Deg * Mathf.Atan((targetDistance * Mathf.Cos(diffAngle * Mathf.Deg2Rad) * Mathf.Abs(Physics.gravity.y)) / (2.0f * bulletSpeed * bulletSpeed));
+
+            elevationAngle -= diffAngle;
 
 			// Update Aim: Y Axis
 			Vector3 transformEuler = transform.eulerAngles;
