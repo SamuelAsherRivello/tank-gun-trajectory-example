@@ -11,9 +11,8 @@ Instructions
 1. Open project
 1. Open "Main" Scene
 1. Play Scene
-1. Select "Target" in Scene Hierarchy
-1. Drag "Target" GameObject to move it within Scene View (The Tank turret will aim automatically)
-1. Press "Spacebar" to fire. The projectile "Bullet" will hit the "Target"
+1. Follow onscreen instructions
+1. The projectile "Bullet" will hit the "Target". Nice!
 
 Note: The math in <a href="https://github.com/SamuelAsherRivello/tank-gun-trajectory-example/blob/master/Unity/Assets/Scripts/Runtime/RMC/TankGunTrajectory/View/Turret.cs">Turret.cs</a> DYNAMICALLY calculates the next turret elevation angle -- using the POSITION of the turret, the POSITION of the target, and a HARDCODED bullet speed.
 
