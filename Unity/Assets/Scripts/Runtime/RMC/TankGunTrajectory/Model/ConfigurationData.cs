@@ -41,7 +41,17 @@ namespace RMC.TankGunTrajectory.Model
 		{
 			get { return _bulletLifetime; }
 		}
-		
+
+		public float TankTurnSpeed
+		{
+			get { return _tankTurnSpeed; }
+		}
+
+		public float TankMoveSpeed
+		{
+			get { return _tankMoveSpeed; }
+		}
+
 
 		//  Fields ----------------------------------------
 
@@ -53,6 +63,15 @@ namespace RMC.TankGunTrajectory.Model
 		private MouseButton _mouseButtonToAim = MouseButton.Right;
 
 		[Header("Gameplay")]
+
+		[SerializeField]
+		[Range(100, 120)]
+		private float _tankTurnSpeed = 100;
+
+		[SerializeField]
+		[Range(10, 20)]
+		private float _tankMoveSpeed = 10;
+
 		[SerializeField]
 		[Range(20, 30)]
 		private float _bulletSpeed = 20;
