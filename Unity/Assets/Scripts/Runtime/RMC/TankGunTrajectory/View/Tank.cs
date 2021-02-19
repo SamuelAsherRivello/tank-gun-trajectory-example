@@ -71,12 +71,11 @@ namespace RMC.TankGunTrajectory.View
 			_turret.AimAtTarget(target, this._configurationData.BulletSpeed);
 		}
 
-		public void ShootBullet()
+		public void ShootAtTarget(Target target)
 		{
-			// Set position
+			// Create bullet
 			Bullet bullet = Instantiate<Bullet>(_bulletPrefab);
-			_turret.ShootAtTarget(bullet, _configurationData.BulletSpeed);
-
+			_turret.ShootAtTarget(target, bullet, _configurationData.BulletSpeed);
 		}
 
 		//  Event Handlers --------------------------------

@@ -11,11 +11,11 @@ namespace RMC.TankGunTrajectory.View
 	public class Bullet : MonoBehaviour
 	{
 		//  Properties ----------------------------------------
-		public Rigidbody RigidBody { get { return _rigidBody; } }
+		public Rigidbody Rigidbody { get { return _rigidbody; } }
 
 		//  Fields ----------------------------------------
 		[SerializeField]
-		private Rigidbody _rigidBody;
+		private Rigidbody _rigidbody;
 
 		[SerializeField]
 		private ParticleSystem _particleSystem = null;
@@ -35,14 +35,6 @@ namespace RMC.TankGunTrajectory.View
 			// to reduce Scene Hierarcy's clutter
 			_destroyAfterDelayCoroutine =
 				StartCoroutine(DestroyAfterDelay(_configurationData.BulletLifetime));
-		}
-
-		protected void Update()
-		{
-			_rigidBody.MoveRotation(
-				Quaternion.Euler(transform.TransformDirection (Vector3.up)));
-
-			_rigidBody.angularVelocity = new Vector3(0, 0, 0);
 		}
 
 		protected void OnDestroy()

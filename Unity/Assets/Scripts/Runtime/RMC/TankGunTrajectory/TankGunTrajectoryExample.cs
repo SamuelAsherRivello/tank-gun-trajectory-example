@@ -4,14 +4,6 @@ using UnityEngine;
 
 namespace RMC.TankGunTrajectory
 {
-	//  Class Attributes ----------------------------------
-	// This is a developer #protip to iterate faster on the aiming
-	// code development without needing to hit 'Play'.
-	//
-	//	NOTE: Hitting 'Play' is indeed required for shooting.
-	//
-	[ExecuteAlways]
-
 	/// <summary>
 	/// Main entry-point to the project. Start reading here...
 	/// </summary>
@@ -56,7 +48,7 @@ namespace RMC.TankGunTrajectory
 			// Shoot At Target
 			if (Input.GetMouseButtonDown((int)_configurationData.MouseButtonToFire))
 			{
-				_tank.ShootBullet();
+				_tank.ShootAtTarget(_target);
 			}
 		}
 
