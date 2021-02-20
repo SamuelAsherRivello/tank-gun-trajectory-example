@@ -10,10 +10,6 @@ namespace RMC.TankGunTrajectory.Model
 		fileName = "TrajectoryAlgorithm01",
 		menuName = "TankGunTrajectory/TrajectoryAlgorithm01",
 		order = 0)]
-
-	/// <summary>
-	/// Store commonly used values -- Editable at runtime and edit-time.
-	/// </summary>
 	public class TrajectoryAlgorithm01 : BaseTrajectoryAlgorithm
 	{
 		//  Properties ------------------------------------
