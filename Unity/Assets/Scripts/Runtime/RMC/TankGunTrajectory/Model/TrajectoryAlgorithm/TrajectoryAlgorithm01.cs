@@ -4,6 +4,7 @@ using UnityEngine;
 namespace RMC.TankGunTrajectory.Model
 {
 	//  Class Fields --------------------------------------
+
 	//  Class Attributes ----------------------------------
 	[CreateAssetMenu (
 		fileName = "TrajectoryAlgorithm01",
