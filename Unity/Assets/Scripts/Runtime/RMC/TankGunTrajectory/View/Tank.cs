@@ -68,14 +68,18 @@ namespace RMC.TankGunTrajectory.View
 		//  Methods ---------------------------------------
 		public void AimAtTarget(Target target)
 		{
-			_turret.AimAtTarget(target, this._configurationData.BulletSpeed);
+			_turret.AimAtTarget(	_configurationData.TrajectoryAlgorithm, 
+									target, _configurationData.BulletSpeed);
 		}
 
 		public void ShootAtTarget(Target target)
 		{
 			// Create bullet
 			Bullet bullet = Instantiate<Bullet>(_bulletPrefab);
-			_turret.ShootAtTarget(target, bullet, _configurationData.BulletSpeed);
+			bullet.Initialize(_configurationData);
+
+			_turret.ShootAtTarget(	_configurationData.TrajectoryAlgorithm, 
+									target, bullet, _configurationData.BulletSpeed);
 		}
 
 		//  Event Handlers --------------------------------

@@ -52,6 +52,11 @@ namespace RMC.TankGunTrajectory.Model
 			get { return _tankMoveSpeed; }
 		}
 
+		public ITrajectoryAlgorithm TrajectoryAlgorithm
+		{
+			get { return _trajectoryAlgorithm; }
+		}
+		
 
 		//  Fields ----------------------------------------
 
@@ -79,6 +84,10 @@ namespace RMC.TankGunTrajectory.Model
 		[SerializeField]
 		[Range (2,5)]
 		private float _bulletLifetime = 2;
+
+		[Header("Mathematics")]
+		[SerializeField]
+		private BaseTrajectoryAlgorithm _trajectoryAlgorithm = null;
 
 
 		//  Unity Methods ---------------------------------
