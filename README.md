@@ -16,6 +16,8 @@ Instructions
 
 Note: The math in <a href="https://github.com/SamuelAsherRivello/tank-gun-trajectory-example/blob/master/Unity/Assets/Scripts/Runtime/RMC/TankGunTrajectory/View/Turret.cs">Turret.cs</a> DYNAMICALLY calculates the next turret elevation angle -- using the POSITION of the turret, the POSITION of the target, and a HARDCODED bullet speed.
 
+Note: Here is some of the <a href="https://github.com/SamuelAsherRivello/tank-gun-trajectory-example/blob/master/math_on_paper.png">math on paper</a>. This does not necessarily represent the final code solution. 
+
 Created By
 =============
 
